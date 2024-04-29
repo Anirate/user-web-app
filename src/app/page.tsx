@@ -1,12 +1,24 @@
+"use client";
+
 import React from "react";
-import('preline')
+import { Button } from "@mui/material";
 
 export default function Home() {
   return (
     <>
-    <button type="button" className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
-  Solid
-</button>
+      <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+        <div className="flex items-center justify-between">
+          <a className="flex-none text-xl font-semibold" href="#">
+            Anirate
+          </a>
+        </div>
+      </header>
+      <Button variant="contained" className="bg-red-600">
+        Button
+      </Button>
+      <Button variant="contained" className="bg-orange-400 ml-9">
+        Second Button
+      </Button>
     </>
   );
 }
