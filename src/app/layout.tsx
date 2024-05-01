@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import React from "react";
+import { Button, AppBar, Toolbar } from "@mui/material";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +19,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AppBar position="static" color="primary">
+          <Toolbar className="flex justify-between">
+            <Link
+              href="/"
+              className="text-xl font-semibold text-white no-underline"
+            >
+              Anirate
+            </Link>
+            <div>
+              <Button color="inherit" component={Link} href="/">
+                Home
+              </Button>
+              <Button color="inherit" component={Link} href="/about">
+                About
+              </Button>
+              <Button color="inherit" component={Link} href="/contact">
+                Contact
+              </Button>
+            </div>
+          </Toolbar>
+        </AppBar>
+        {children}
+      </body>
     </html>
   );
 }
