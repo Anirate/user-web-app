@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import { Button, AppBar, Toolbar } from "@mui/material";
+import { Button, AppBar, Toolbar, IconButton } from "@mui/material";
 import Link from "next/link";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,25 +23,49 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <AppBar position="static" color="primary">
+        <AppBar position="static" color="transparent">
           <Toolbar className="flex justify-between">
             <Link
               href="/"
-              className="text-xl font-semibold text-white no-underline"
+              className="no-underline text-inherit tracking-[.3em] font-bold font-mono mr-2"
             >
-              Anirate
+              LOGO
             </Link>
-            <div>
-              <Button color="inherit" component={Link} href="/">
+            <div className="grow">
+              <Button
+                color="inherit"
+                component={Link}
+                href="/"
+                className="normal-case"
+              >
                 Home
               </Button>
-              <Button color="inherit" component={Link} href="/about">
+              <Button
+                color="inherit"
+                component={Link}
+                href="/about"
+                className="normal-case"
+              >
                 About
               </Button>
-              <Button color="inherit" component={Link} href="/contact">
+              <Button
+                color="inherit"
+                component={Link}
+                href="/contact"
+                className="normal-case"
+              >
                 Contact
               </Button>
             </div>
+            <IconButton size="large" aria-haspopup="true" color="inherit">
+              <HelpOutlineIcon />
+            </IconButton>
+            <IconButton size="large" aria-haspopup="true" color="inherit">
+              <SettingsOutlinedIcon />
+            </IconButton>
+            <IconButton size="large" aria-haspopup="true" color="inherit">
+              <AccountCircleOutlinedIcon />
+            </IconButton>
           </Toolbar>
         </AppBar>
         {children}
