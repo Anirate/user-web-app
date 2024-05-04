@@ -38,23 +38,23 @@ export default function RootLayout({
                 href="/"
                 className="normal-case"
               >
-                Home
+                Plans
               </Button>
               <Button
                 color="inherit"
                 component={Link}
-                href="/about"
+                href="/reports"
                 className="normal-case"
               >
-                About
+                Reports
               </Button>
               <Button
                 color="inherit"
                 component={Link}
-                href="/contact"
+                href="/scenarios"
                 className="normal-case"
               >
-                Contact
+                Scenarios
               </Button>
             </div>
             <IconButton size="large" aria-haspopup="true" color="inherit">
