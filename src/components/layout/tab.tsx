@@ -1,6 +1,6 @@
 // src/components/ReusableTabs.tsx
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tab, Tabs, Box } from "@mui/material";
 
 interface TabContent {
@@ -10,10 +10,17 @@ interface TabContent {
 
 interface ReusableTabsProps {
   tabs: TabContent[];
+  selectedIndex?: number;
 }
 
-const ReusableTabs: React.FC<ReusableTabsProps> = ({ tabs }) => {
+const ReusableTabs: React.FC<ReusableTabsProps> = ({ tabs, selectedIndex }) => {
   const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (selectedIndex !== undefined) {
+      setValue(selectedIndex);
+    }
+  }, [selectedIndex]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);

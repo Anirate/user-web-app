@@ -2,7 +2,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import { Button, AppBar, Toolbar, IconButton } from "@mui/material";
+import {
+  Button,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Tab,
+  Tabs,
+  Box,
+} from "@mui/material";
 import Link from "next/link";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -31,32 +39,28 @@ export default function RootLayout({
             >
               LOGO
             </Link>
-            <div className="grow">
-              <Button
-                color="inherit"
-                component={Link}
-                href="/"
-                className="normal-case"
-              >
-                Plans
-              </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                href="/reports"
-                className="normal-case"
-              >
-                Reports
-              </Button>
-              <Button
-                color="inherit"
-                component={Link}
-                href="/scenarios"
-                className="normal-case"
-              >
-                Scenarios
-              </Button>
-            </div>
+            <Box className="grow">
+              <Tabs>
+                <Tab
+                  label="Plans"
+                  className="normal-case font-bold text-[#002A3A]"
+                  href="/"
+                />
+
+                <Tab
+                  label="Reports"
+                  className="normal-case font-bold text-[#002A3A]"
+                  href="/reports"
+                />
+
+                <Tab
+                  label="Scenarios"
+                  className="normal-case font-bold text text-[#002A3A]"
+                  href="/scenarios"
+                />
+              </Tabs>
+            </Box>
+
             <IconButton size="large" aria-haspopup="true" color="inherit">
               <HelpOutlineIcon />
             </IconButton>

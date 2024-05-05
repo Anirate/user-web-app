@@ -14,22 +14,32 @@ interface TreeNode {
 interface SimpleTreeViewProps {
   treeData: TreeNode[];
   className?: string;
+  onItemSelect: (itemId: string) => void;
 }
 
-const renderTreeItems = (nodes: TreeNode[]): JSX.Element[] =>
+const renderTreeItems = (
+  nodes: TreeNode[],
+  onItemSelect: (itemId: string) => void
+): JSX.Element[] =>
   nodes.map((node) => (
-    <TreeItem key={node.itemId} itemId={node.itemId} label={node.label}>
-      {node.children && renderTreeItems(node.children)}
+    <TreeItem
+      key={node.itemId}
+      itemId={node.itemId}
+      label={node.label}
+      onClick={() => onItemSelect(node.itemId)}
+    >
+      {node.children && renderTreeItems(node.children, onItemSelect)}
     </TreeItem>
   ));
 
 const SimpleTreeView: React.FC<SimpleTreeViewProps> = ({
   treeData,
   className,
+  onItemSelect,
 }) => (
   <MuiSimpleTreeView className={className}>
     <Typography>Tree Items</Typography>
-    {renderTreeItems(treeData)}
+    {renderTreeItems(treeData, onItemSelect)}
   </MuiSimpleTreeView>
 );
 

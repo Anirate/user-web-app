@@ -1,12 +1,39 @@
 import React from "react";
-import Link from "next/link";
+import { Grid } from "@mui/material";
+
+import CustomCard from "@/components/ui/card";
 
 export default function Scenarios() {
+  const cardData = [
+    {
+      title: "Scenario Folder 1",
+    },
+    {
+      title: "Scenario Folder 2",
+    },
+    {
+      title: "Scenario Folder 3",
+    },
+    {
+      title: "Scenario Folder 3",
+    },
+    {
+      title: "Scenario Folder 4",
+    },
+  ];
+
   return (
     <>
-      <h1>Scenarios</h1>
-      <p>You can reach us via email at contact@anirate.com.</p>
-      <Link href="/">Go back to Plans</Link>
+      <>
+        <div className="p-7">
+          <h1 className="font-bold text-3xl">Scenarios</h1>
+        </div>
+        <Grid container spacing={2} padding={2}>
+          {cardData.map((card, index) => (
+            <CustomCard key={index} title={card.title} />
+          ))}
+        </Grid>
+      </>
     </>
   );
 }
